@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axiosInstance from '../api/axios';
+import { toast } from 'react-toastify';
 // import { useProductStore } from '../store/product.js';
 
 const CreateItem = () => {
@@ -27,12 +28,13 @@ const CreateItem = () => {
   
       if (response.status === 201) {
         console.log("Product created:", response.data);
+        toast.success("Item successfully added !");
         // Clear the form after successful submission
         setFormData({ name: '', price: '', image: '' });
       }
     } catch (error) {
       console.error("Error creating product:", error);
-      alert("Error creating product. Please try again.");
+      toast.error("Error creating product. Please try again.");
     }
   };
 

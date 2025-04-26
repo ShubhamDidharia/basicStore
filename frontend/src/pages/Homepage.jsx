@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react';
 import axiosInstance from '../api/axios'; // Import the axios instance
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -26,6 +27,7 @@ const HomePage = () => {
       await axiosInstance.delete(`/api/products/${id}`); // or use axiosInstance
       // Remove the deleted product from state
       setProducts(prev => prev.filter(product => product._id !== id));
+      toast.success("Deletion successful!");
     } catch (error) {
       console.error("Error deleting product:", error);
       alert("Failed to delete product.");

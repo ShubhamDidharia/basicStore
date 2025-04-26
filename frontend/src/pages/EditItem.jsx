@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '../api/axios';
+import { toast } from 'react-toastify';
 
 const EditItem = () => {
   const { id } = useParams();
@@ -38,11 +39,11 @@ const EditItem = () => {
     try {
       const response = await axiosInstance.put(`/api/products/${id}`, formData);
       if (response.status === 200) {
-        alert("Product updated successfully!");
+        toast.success("Item edited successfully!");
       }
     } catch (error) {
       console.error("Update failed:", error);
-      alert("Failed to update product.");
+      toast.error("something failed!");
     }
   };
 

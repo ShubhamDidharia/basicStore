@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000; // Set the port to the value in .env or d
 
 // CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:5173', // Frontend URL
+  origin: 'https://basicstore-01.onrender.com', // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
